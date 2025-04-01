@@ -1,0 +1,82 @@
+{
+    "user": {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "balance": 12500,
+      "savings": 4500,
+      "spendings": 2500,
+      "investments": 5500,
+      "currency": "USD"
+    },
+    "transactions": [
+      {
+        "id": 1,
+        "type": "deposit",
+        "amount": 5000,
+        "date": "2025-03-30T10:15:00Z",
+        "status": "completed"
+      },
+      {
+        "id": 2,
+        "type": "withdrawal",
+        "amount": 2000,
+        "date": "2025-03-28T15:30:00Z",
+        "status": "pending"
+      },
+      {
+        "id": 3,
+        "type": "investment",
+        "amount": 3000,
+        "date": "2025-03-25T08:45:00Z",
+        "status": "completed"
+      }
+    ],
+    "spendings": [
+      {
+        "id": 1,
+        "name": "Stock Portfolio",
+        "amount": 5000,
+        "returns": 7.5,
+        "date": "2025-02-15T14:00:00Z"
+      },
+      {
+        "id": 2,
+        "name": "Crypto Fund",
+        "amount": 2500,
+        "returns": 12.0,
+        "date": "2025-01-10T09:30:00Z"
+      }
+    ],
+    "investments": [
+      {
+        "id": 1,
+        "name": "Stock Portfolio",
+        "amount": 5000,
+        "returns": 7.5,
+        "date": "2025-02-15T14:00:00Z"
+      },
+      {
+        "id": 2,
+        "name": "Crypto Fund",
+        "amount": 2500,
+        "returns": 12.0,
+        "date": "2025-01-10T09:30:00Z"
+      }
+    ],
+    "savings": [
+      {
+        "id": 1,
+        "amount": 1000,
+        "returns": 7.5,
+        "date": "2025-02-15T14:00:00Z"
+      },
+      {
+        "id": 2,
+        "amount": 200,
+        "returns": 12.0,
+        "date": "2025-01-10T09:30:00Z"
+      }
+    ]
+  }
+  

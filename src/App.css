@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #FCFCFC;
+  --white: #FFFFFF;
+  --offwhite: #f8f9fa;
+  --black: #000000;
+  --blackish-grey: #202020;
+  --offBlue: #0F172A;
+  --grey: #3D3D3D;
+  --offGrey: #98A393;
+  --red: #BC2027;
+
+  /* text size  */
+  --fs-base: 20px;
+  --fs-lg: 30px;
+  --fs-xl: 40px;
+  --fs-hero: 60px;
+
+  /* font type */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* box shadow */
+  --shadow-custom: 0px 4px 4px 0px #00000040;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-white: var(--white);
+  --color-offwhite: var(--offwhite);
+  --color-warning: var(--red);
+  --color-grey: var(--grey);
+  --color-black: var(--black);
+  --color-blackish-grey: var(--blackish-grey);
+  --color-offGrey: var(--offGrey);
+  --color-offBlue: var(--offBlue);
+
+  --text-Base: var(--fs-base);
+  --text-Lg: var(--fs-lg);
+  --text-Xl: var(--fs-xl);
+  --text-Hero: var(--fs-hero);
+
+  --font-weight-Regular: var(--fw-regular);
+  --font-weight-Medium: var(--fw-medium);
+  --font-weight-Bold: var(--fw-semibold);
+  --font-weight-semiBold: var(--fw-bold);
+
+  --shadow-Custom: var(--shadow-custom);
+}
+
+@layer base {
+  *{
+    background-color: var(--background);
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html {
+    font-size: var(--fs-base);
+    color: var(--black);
+  }
+}
