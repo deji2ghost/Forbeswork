@@ -36,7 +36,7 @@ const NavBar:React.FC<NavbarProps> = ({toggleSidebar}) => {
       <FaBars className="lg:hidden" onClick={toggleSidebar} />
       <h1 className="text-black dark:text-white">FORBEWORK</h1>
       </>
-      <button onClick={toggleDarkMode} className="bg-white dark:bg-black px-4 py-2 rounded-md">
+      <button onClick={toggleDarkMode} className="bg-white cursor-pointer dark:bg-black px-4 py-2 rounded-md">
         {darkMode ? <FaSun /> : <FaMoon />}
       </button>
     </div>

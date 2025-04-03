@@ -147,6 +147,10 @@ const dashboardSlice = createSlice({
           state.user.spendings -= amount;
           toast.success(`₦${amount} has been withdrawn ✅`);
         } else if (type === "Save") { 
+          if (amount > 2000) {
+            state.formError = "You cannot save more than ₦2000 at once.";
+            return;
+          }
           if (state.user.spendings >= amount) {
             state.user.spendings -= amount;
             state.user.savings += amount;

@@ -92,6 +92,11 @@ const Home = () => {
       return;
     }
 
+    if (amount > 2000) {
+      dispatch(setFormError("Amount must be less than 2000."));
+      return;
+    }
+
     dispatch(setFormError(""));
 
     const transactionDetails = {

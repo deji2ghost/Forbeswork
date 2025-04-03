@@ -42,7 +42,7 @@ const CustomTable = ({ data, error, loading, header1, header2, header3 }: Props)
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <tr
               key={index}
               className="text-center border-t text-sm sm:text-base"

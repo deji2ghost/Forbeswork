@@ -64,11 +64,18 @@ const Savings = () => {
 
   const closeModal = useCallback(() => {
     dispatch(setModalOpen({ open: false, type: null }));
+    dispatch(setFormError(""));
+    dispatch(setAmount(null));
   }, [dispatch]);
 
   const handleSubmit = useCallback(() => {
     if (amount === null || amount <= 0 || isNaN(amount) || !modalType) {
       dispatch(setFormError("Please enter a valid amount."));
+      return;
+    }
+
+    if (amount > 2000) {
+      dispatch(setFormError("Savings must be less than 2000."));
       return;
     }
 
@@ -157,7 +164,7 @@ const Savings = () => {
       <Suspense>
         <LazyModal
           onClose={closeModal}
-          header={modalType === "deposit" ? "Deposit Money" : "Withdraw Money"}
+          header={modalType ? modalType : ""}
           isOpen={modalOpen}
           content={
             <div className="flex flex-col gap-2 items-center bg-white">
@@ -181,12 +188,10 @@ const Savings = () => {
           footer={
             <div className="flex items-center justify-between bg-white gap-3">
               <Button handleClick={closeModal}>Cancel</Button>
-              <Button handleClick={handleSubmit}>
-                {modalType === "deposit" ? "Add Money" : "Withdraw Money"}
-              </Button>
+              <Button handleClick={handleSubmit}>{modalType}</Button>
             </div>
           }
-          />
+        />
       </Suspense>
     </div>
   );

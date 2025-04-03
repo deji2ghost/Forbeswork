@@ -41,7 +41,7 @@ export const getTransactions = async() => {
 
 export const getSavings = async() => {
     try{
-        const response = await AxiosInstance.get("/savi/ngs")
+        const response = await AxiosInstance.get("/savings")
         return response.data
     } catch(error) {
         if (axios.isAxiosError(error)) {
