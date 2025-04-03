@@ -5,10 +5,10 @@ export const routes = [
     },
     {
         name: 'Savings',
-        route: "savings"
+        route: "/savings"
     },
     {
         name: 'Investments',
-        route: "investments"
+        route: "/investments"
     },
 ]

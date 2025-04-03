@@ -7,7 +7,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, header, content, footer,
     <>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300 ease-in-out"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300 ease-in-out"
           onClick={onClose}
         >
           <div
@@ -17,7 +17,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, header, content, footer,
             )}
             onClick={(e) => e.stopPropagation()}
           >
-            {header}
+            <h1 className="bg-white text-black text-[25px] font-Bold">{header}</h1>
+            
             {content}
             {footer}
           </div>

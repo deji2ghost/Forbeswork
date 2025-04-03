@@ -2,7 +2,9 @@ import { JSX } from "react";
 
 export interface CardProps{
     className?: string,
-    text: string,
+    text?: number,
     header: string,
-    icon: JSX.Element
+    icon: JSX.Element,
+    loading: boolean,
+    error?: string
 }

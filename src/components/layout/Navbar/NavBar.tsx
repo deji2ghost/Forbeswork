@@ -1,9 +1,44 @@
+import { useEffect, useState } from "react";
+import { FaBars, FaMoon, FaSun } from "react-icons/fa6";
 
-const NavBar = () => {
+export interface NavbarProps{
+  toggleSidebar: () => void
+}
+
+const NavBar:React.FC<NavbarProps> = ({toggleSidebar}) => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      setDarkMode(true);
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      if (newMode) {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+      return newMode;
+    });
+  };
+
   return (
-    <div className="flex items-center justify-between border border-grey bg-offwhite py-4 px-3">
-      <h1>FORBEWORK</h1>
-      <div>Light mode</div>
+    <div className="flex items-center justify-between bg-offwhite dark:bg-offBlue dark:border-white py-4 px-3">
+      <>
+      <FaBars className="lg:hidden" onClick={toggleSidebar} />
+      <h1 className="text-black dark:text-white">FORBEWORK</h1>
+      </>
+      <button onClick={toggleDarkMode} className="bg-white dark:bg-black px-4 py-2 rounded-md">
+        {darkMode ? <FaSun /> : <FaMoon />}
+      </button>
     </div>
   )
 }

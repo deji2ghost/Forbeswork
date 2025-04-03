@@ -1,11 +1,10 @@
-import { JSX, ReactNode } from "react";
+import { JSX } from "react";
 
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: ReactNode;
-  header: JSX.Element;
+  header: string;
   content: JSX.Element;
   footer: JSX.Element;
-  className: string;
+  className?: string;
 }

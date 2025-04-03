@@ -1,12 +1,22 @@
+import axios from "axios"
 import AxiosInstance from "../axiosInstance/AxiosInstance"
 
 export const getUser = async() => {
     try{
         const response = await AxiosInstance.get("/user")
-        console.log(response.data)
         return response.data
     } catch(error) {
-        console.log(error)
+        if (axios.isAxiosError(error)) {
+      
+            const errorMessage =
+              error.response?.data?.message || 
+              error.message ||
+              "Failed to fetch user data";
+      
+            throw new Error(errorMessage);
+          } else {
+            throw new Error("An unexpected error occurred");
+          }
     }
 }
 
@@ -15,16 +25,36 @@ export const getTransactions = async() => {
         const response = await AxiosInstance.get("/transactions")
         return response.data
     } catch(error) {
-        console.log(error)
+        if (axios.isAxiosError(error)) {
+      
+            const errorMessage =
+              error.response?.data?.message || 
+              error.message ||
+              "Failed to fetch user data";
+      
+            throw new Error(errorMessage);
+          } else {
+            throw new Error("An unexpected error occurred");
+          }
     }
 }
 
 export const getSavings = async() => {
     try{
-        const response = await AxiosInstance.get("/savings")
+        const response = await AxiosInstance.get("/savi/ngs")
         return response.data
     } catch(error) {
-        console.log(error)
+        if (axios.isAxiosError(error)) {
+      
+            const errorMessage =
+              error.response?.data?.message || 
+              error.message ||
+              "Failed to fetch user data";
+      
+            throw new Error(errorMessage);
+          } else {
+            throw new Error("An unexpected error occurred");
+          }
     }
 }
 export const getSpendings = async() => {
@@ -32,7 +62,17 @@ export const getSpendings = async() => {
         const response = await AxiosInstance.get("/spendings")
         return response.data
     } catch(error) {
-        console.log(error)
+        if (axios.isAxiosError(error)) {
+      
+            const errorMessage =
+              error.response?.data?.message || 
+              error.message ||
+              "Failed to fetch user data";
+      
+            throw new Error(errorMessage);
+          } else {
+            throw new Error("An unexpected error occurred");
+          }
     }
 }
 export const getInvestments = async() => {
@@ -40,6 +80,16 @@ export const getInvestments = async() => {
         const response = await AxiosInstance.get("/investments")
         return response.data
     } catch(error) {
-        console.log(error)
+        if (axios.isAxiosError(error)) {
+      
+            const errorMessage =
+              error.response?.data?.message || 
+              error.message ||
+              "Failed to fetch user data";
+      
+            throw new Error(errorMessage);
+          } else {
+            throw new Error("An unexpected error occurred");
+          }
     }
 }

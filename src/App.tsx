@@ -5,11 +5,12 @@ import {
   RouterProvider,
 } from "react-router";
 import "./App.css";
-import Home from "./page/Home/Home";
 import Main from "./components/layout/Main/Main";
-import Queryprovider from "./components/layout/QueryProvider/Queryprovider";
-import Savings from "./page/Savings/Savings";
-import Investment from "./page/Investments/investment";
+import { lazy } from "react";
+
+const Home = lazy(() => import("./page/Home/Home"));
+const Savings = lazy(() => import("./page/Savings/Savings"));
+const Investment = lazy(() => import("./page/Investments/investment"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,9 +26,9 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <Queryprovider>
+    <>
       <RouterProvider router={router} />
-    </Queryprovider>
+    </>
   );
 }
 
