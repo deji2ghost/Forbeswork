@@ -1,10 +1,9 @@
 import axios from "axios"
-import AxiosInstance from "../axiosInstance/AxiosInstance"
 
 export const getUser = async() => {
     try{
-        const response = await AxiosInstance.get("/user")
-        return response.data
+        const response = await axios.get("/data.json")
+        return response.data.user
     } catch(error) {
         if (axios.isAxiosError(error)) {
       
@@ -22,8 +21,8 @@ export const getUser = async() => {
 
 export const getTransactions = async() => {
     try{
-        const response = await AxiosInstance.get("/transactions")
-        return response.data
+        const response = await axios.get("/data.json")
+        return response.data.transactions
     } catch(error) {
         if (axios.isAxiosError(error)) {
       
@@ -41,8 +40,8 @@ export const getTransactions = async() => {
 
 export const getSavings = async() => {
     try{
-        const response = await AxiosInstance.get("/savings")
-        return response.data
+        const response = await axios.get("/data.json")
+        return response.data.savings
     } catch(error) {
         if (axios.isAxiosError(error)) {
       
@@ -59,8 +58,8 @@ export const getSavings = async() => {
 }
 export const getSpendings = async() => {
     try{
-        const response = await AxiosInstance.get("/spendings")
-        return response.data
+        const response = await axios.get("/data.json")
+        return response.data.spendings
     } catch(error) {
         if (axios.isAxiosError(error)) {
       
@@ -77,8 +76,8 @@ export const getSpendings = async() => {
 }
 export const getInvestments = async() => {
     try{
-        const response = await AxiosInstance.get("/investments")
-        return response.data
+        const response = await axios.get("/data.json")
+        return response.data.investment
     } catch(error) {
         if (axios.isAxiosError(error)) {
       
