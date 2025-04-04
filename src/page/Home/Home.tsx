@@ -21,6 +21,7 @@ import {
 } from "../../Redux/reduxHook/reduxHook";
 import CardSection from "../../components/Template/Home/CardSection";
 import { getRandomId } from "../../utils/getId";
+import Loader from "../../components/ui/loader";
 
 const LazyModal = lazy(() => import("../../components/ui/modal/modal"));
 
@@ -110,6 +111,16 @@ const Home = () => {
     dispatch(setAmount(null));
     dispatch(setModalOpen({ open: false, type: null }));
   }, [amount, modalType, dispatch]);
+
+  if (userLoading || transactionsLoading)
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+
+  if (userError || transactionsError)
+    return <div>{userError ? userError : transactionsError}</div>;
 
   return (
     <div className="flex flex-col gap-6">

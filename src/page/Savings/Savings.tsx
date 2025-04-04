@@ -19,6 +19,7 @@ import {
   updateBalance,
 } from "../../Redux/slice/dashboardSlice";
 import { getRandomId } from "../../utils/getId";
+import Loader from "../../components/ui/loader";
 const LazyModal = lazy(() => import("../../components/ui/modal/modal"));
 
 const Savings = () => {
@@ -36,7 +37,6 @@ const Savings = () => {
     savingsLoading,
     savingsError,
   } = useAppSelector((state) => state.dashboard);
-  console.log(modalType);
 
   useEffect(() => {
     if (!data) dispatch(fetchUser());
@@ -93,6 +93,10 @@ const Savings = () => {
     dispatch(setModalOpen({ open: false, type: null }));
   }, [amount, modalType, dispatch]);
 
+  if(userLoading || savingsLoading) return <div><Loader /></div>
+
+  if(userError || savingsError) return <div>{userError ? userError : savingsError}</div>
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-2">
@@ -125,7 +129,7 @@ const Savings = () => {
         <div className="flex flex-col gap-3 w-full lg:w-[50%] md:h-[570px] shadow-lg border border-offGrey p-3 rounded-md">
           <Button handleClick={() => openModal("Save")}>Click to Save</Button>
           <div className="bg-offGrey p-3 border">
-            <h1>Whenever you save it gets deducted from your spendings</h1>
+            <h1 className="">Whenever you save it gets deducted from your spendings</h1>
             <div className="hidden h-[400px] lg:flex items-center justify-center">
               <FinancialPieChart
                 loading={userLoading}

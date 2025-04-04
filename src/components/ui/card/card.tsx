@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ className, text, header, icon, loading, err
         error ? <div className="text-warning">{error}</div> : loading ? <div><Loader /></div> : 
         <>
       <div className="flex justify-between">
-        <h1>{header}</h1>
+        <h1 className="font-Regular">{header}</h1>
         {icon}
       </div>
       <p>{text}</p>
